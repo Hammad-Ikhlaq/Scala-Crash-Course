@@ -1,0 +1,484 @@
+1
+00:00:01,020 --> 00:00:04,760
+All right moving on this next topic is going to be a little bit easier a little bit more straightforward
+
+2
+00:00:04,770 --> 00:00:06,750
+just not talk about flow control and Scala.
+
+3
+00:00:06,750 --> 00:00:12,620
+So to get started, go ahead to the resources for this lecture and download the LearningScala2.sc
+
+4
+00:00:12,630 --> 00:00:15,140
+file wherever you download stuff.
+
+5
+00:00:15,390 --> 00:00:16,680
+And I will sit here and wait for you.
+
+6
+00:00:16,680 --> 00:00:19,470
+So hit pause and take care of that please.
+
+7
+00:00:19,470 --> 00:00:20,730
+All right let's move on.
+
+8
+00:00:21,120 --> 00:00:28,470
+So now I right click on LearningScala here, scala project here and say imports and go to wherever the
+
+9
+00:00:28,470 --> 00:00:32,630
+file system browse to wherever you download your stuff.
+
+10
+00:00:32,820 --> 00:00:35,750
+For me that is it's
+
+11
+00:00:38,250 --> 00:00:47,640
+for me that is C downloads and select LearningScala2.sc and had finished to import that into our
+
+12
+00:00:47,640 --> 00:00:52,290
+LearningScala project and double click on that and you should see this.
+
+13
+00:00:52,320 --> 00:00:57,540
+So let's just talk about flow control you know how we control the flow of our code in Scala, all
+
+14
+00:00:57,990 --> 00:00:59,220
+pretty intuitive.
+
+15
+00:00:59,220 --> 00:01:03,150
+You know there are a few syntactical differences from other languages but by and large you should look
+
+16
+00:01:03,150 --> 00:01:06,600
+very familiar to whatever language you're already familiar with.
+
+17
+00:01:06,600 --> 00:01:09,940
+So for example you can use if else syntax.
+
+18
+00:01:10,530 --> 00:01:14,420
+If one is greater than three print 'impossible', one isn't greater than three.
+
+19
+00:01:14,430 --> 00:01:14,880
+Else
+
+20
+00:01:14,880 --> 00:01:18,970
+Print line that world makes sense and sure enough that will output 'the world makes sense'.
+
+21
+00:01:19,020 --> 00:01:23,450
+Now I could also put brackets around this if I wanted to make it more than one line that's OK.
+
+22
+00:01:23,460 --> 00:01:27,840
+You know you see that down here where I'm actually splitting it out to be a little bit more readable
+
+23
+00:01:27,840 --> 00:01:28,040
+.
+
+24
+00:01:28,200 --> 00:01:29,660
+Often spark code.
+
+25
+00:01:29,660 --> 00:01:34,530
+You see people jam things on to one line just because they can and that's kind of a common attribute
+
+26
+00:01:34,530 --> 00:01:36,240
+of functional programming I'm afraid.
+
+27
+00:01:36,240 --> 00:01:37,250
+But either way works.
+
+28
+00:01:37,430 --> 00:01:38,490
+So that's fine.
+
+29
+00:01:38,490 --> 00:01:41,270
+There is no elseif OPERATOR So you'd have to actually do another.
+
+30
+00:01:41,280 --> 00:01:47,670
+You know elseif that if you want it to and that's all there is to that if an else says the way you
+
+31
+00:01:47,670 --> 00:01:48,720
+would expect.
+
+32
+00:01:48,960 --> 00:01:50,190
+Now matching.
+
+33
+00:01:50,190 --> 00:01:54,390
+So let's say you have like a switch statement another in other languages where you have evaluated want
+
+34
+00:01:54,510 --> 00:01:59,850
+to like have different cases, where you do something different depending on what value that that variable
+
+35
+00:01:59,850 --> 00:02:00,930
+has.
+
+36
+00:02:01,350 --> 00:02:05,550
+So in Scala that's called a match statement so and so the switch we use match.
+
+37
+00:02:05,550 --> 00:02:07,160
+Other than that pretty similar.
+
+38
+00:02:07,170 --> 00:02:09,460
+So let's say we start with a constant value,
+
+39
+00:02:09,480 --> 00:02:10,090
+Number.
+
+40
+00:02:10,150 --> 00:02:12,080
+That's the number three.
+
+41
+00:02:12,270 --> 00:02:15,480
+We can set a number match with the syntax here.
+
+42
+00:02:15,480 --> 00:02:19,670
+So I want to match on the value of number and for Case 1.
+
+43
+00:02:19,840 --> 00:02:24,600
+She had this sort of like equal sign greater than thing that sort of says you know associate this function
+
+44
+00:02:24,600 --> 00:02:28,310
+with that case so I could actually be a whole expression if I wanted to.
+
+45
+00:02:28,320 --> 00:02:30,290
+But in this example we'll keep it simple.
+
+46
+00:02:30,390 --> 00:02:37,060
+So in case one we're going to map that to print line one case two will be mapped to print line.
+
+47
+00:02:37,260 --> 00:02:42,980
+Case 3 will be mapped to a print line 3 and then this underscore is basically your default area to catch
+
+48
+00:02:42,980 --> 00:02:44,940
+all case here.
+
+49
+00:02:45,060 --> 00:02:49,640
+So case underscore meaning it's something that's not one, two or three will print line or
+
+50
+00:02:49,640 --> 00:02:50,530
+something else.
+
+51
+00:02:50,820 --> 00:02:52,260
+But in this case our number is three.
+
+52
+00:02:52,320 --> 00:02:56,080
+So it falls through to the case 3 and prints 3.
+
+53
+00:02:56,100 --> 00:02:58,130
+Which indeed works.
+
+54
+00:02:58,140 --> 00:03:01,110
+So again you know there's nothing really complicated going on there.
+
+55
+00:03:01,140 --> 00:03:05,930
+Just like a switch statement in other languages with a syntax a little bit different syntax a little
+
+56
+00:03:05,940 --> 00:03:10,080
+bit different we have match followed by the value name.
+
+57
+00:03:10,080 --> 00:03:14,800
+Here it's a little bit backwards from other languages and we had a little mapping operator here equal
+
+58
+00:03:14,800 --> 00:03:18,510
+or greater than to actually map cases to what you want them to do.
+
+59
+00:03:18,630 --> 00:03:22,340
+So that's the syntactical trickery there for loops.
+
+60
+00:03:22,340 --> 00:03:23,370
+Nothing special about them.
+
+61
+00:03:23,370 --> 00:03:26,100
+Well little bit syntactically So look at what's going on here.
+
+62
+00:03:26,100 --> 00:03:28,400
+We have a for loop  1 to 4.
+
+63
+00:03:28,470 --> 00:03:33,050
+So basically we want to iterate through the values 1 through 4 inclusively.
+
+64
+00:03:33,090 --> 00:03:38,250
+The only weird thing here is it's a little less than Dasch syntax here and that is basically a range
+
+65
+00:03:38,250 --> 00:03:39,380
+operator in Scala.
+
+66
+00:03:39,380 --> 00:03:45,870
+So that says I'm going to take the value X within the range of 1 to 4 and it's going to create you know
+
+67
+00:03:46,210 --> 00:03:49,110
+a list of 1 2 3 4 and iterate through that.
+
+68
+00:03:49,110 --> 00:03:53,970
+In this for loop so people will take here the square of each value.
+
+69
+00:03:54,090 --> 00:03:59,790
+So for each value one through four and multiply by itself and print the results and we see 1 times 1
+
+70
+00:03:59,790 --> 00:04:03,950
+is 1, 2 times 2 is 4, 3 times 3 is 9 and 4 times 4 for 16.
+
+71
+00:04:03,960 --> 00:04:07,800
+So the for loop syntax itself is exactly what you would expect.
+
+72
+00:04:07,830 --> 00:04:10,740
+But we have this new range operator here that something new.
+
+73
+00:04:10,740 --> 00:04:15,610
+So remember that's how you specify a range of values in Scala.
+
+74
+00:04:16,170 --> 00:04:21,750
+While loops absolutely nothing interesting there it works exactly the same as other languages so let's
+
+75
+00:04:21,750 --> 00:04:28,320
+say I start with the x variable set to 10 and want to iterate through this while x is greater than or
+
+76
+00:04:28,320 --> 00:04:33,510
+equal to zero. While I subtract 1 for it as I go print the values so you know there's really nothing
+
+77
+00:04:33,510 --> 00:04:36,020
+fancy there at all it is exactly what you'd expect.
+
+78
+00:04:36,020 --> 00:04:42,820
+We start with 10 and as we print the value and then decrement it will keep on going untill I hit 0.
+
+79
+00:04:42,820 --> 00:04:45,430
+So 10 9 8 all the way down to zero.
+
+80
+00:04:46,320 --> 00:04:51,030
+Just like in any other language and just like we have while loops we can also do do while loops also
+
+81
+00:04:51,030 --> 00:04:52,530
+just like in any other language.
+
+82
+00:04:52,530 --> 00:04:55,640
+There's really nothing scala special here going on.
+
+83
+00:04:55,650 --> 00:04:57,980
+We have basically starting with the value 0.
+
+84
+00:04:58,080 --> 00:05:03,330
+Do print the value incremented by 1 and do that while X is less than or equal to 10.
+
+85
+00:05:03,420 --> 00:05:09,810
+So instead of counting down from 10 to 0 we're gonna count up from 0 to 10 using a do while loop.
+
+86
+00:05:09,810 --> 00:05:12,710
+Again if you have any prior programming experience at all.
+
+87
+00:05:12,720 --> 00:05:16,330
+I'm sure you've seen this all before and there's really nothing special about it when it comes to scala
+
+88
+00:05:16,350 --> 00:05:16,540
+.
+
+89
+00:05:16,650 --> 00:05:18,690
+Works this way you think.
+
+90
+00:05:18,690 --> 00:05:23,010
+Now one thing I want to talk about those expressions in Scala And one thing that is a little bit different
+
+91
+00:05:23,310 --> 00:05:26,680
+is that we have a block code like this.
+
+92
+00:05:26,850 --> 00:05:31,980
+Let's say I'm starting with a value of x equal to 10 and then I'm going to add 20 to that.
+
+93
+00:05:31,980 --> 00:05:36,330
+Now in other languages that wouldn't actually do anything because we're not actually returning anything
+
+94
+00:05:36,330 --> 00:05:38,400
+from that expression but in Scala.
+
+95
+00:05:38,490 --> 00:05:45,420
+This has an implicit value so whatever the last expression is will be what this expression as a whole
+
+96
+00:05:45,420 --> 00:05:46,070
+is set to.
+
+97
+00:05:46,080 --> 00:05:51,290
+So I can actually take this expression and use that as the value 30.
+
+98
+00:05:51,360 --> 00:05:53,240
+So take a look at this.
+
+99
+00:05:53,370 --> 00:05:57,380
+I can say print mine this expression Galaxie was 10 x plus 20.
+
+100
+00:05:57,390 --> 00:06:01,310
+That expression gets evaluated and the number we're left with at the end is 30.
+
+101
+00:06:01,380 --> 00:06:05,380
+So this all gets translated into the value 30, which actually is what gets printed out here.
+
+102
+00:06:05,380 --> 00:06:12,450
+OK so we're trying to touch on some aspects of functional programming here where expressions can actually
+
+103
+00:06:12,450 --> 00:06:14,550
+be used as values of their own.
+
+104
+00:06:14,770 --> 00:06:19,980
+OK so that takes a little bit of wrapping your head around so stare at those two lines a little bit
+
+105
+00:06:19,980 --> 00:06:22,330
+longer and make sure that sinks in for you.
+
+106
+00:06:22,810 --> 00:06:25,570
+OK now just get your hands dirty.
+
+107
+00:06:25,620 --> 00:06:30,600
+Simple example here you probably see this on a lot of sort of simple job interviews to print the Fibonacci
+
+108
+00:06:30,600 --> 00:06:32,490
+sequence and whatever language you want.
+
+109
+00:06:32,490 --> 00:06:35,400
+In this case I want you to do it in the scala programming language.
+
+110
+00:06:35,410 --> 00:06:36,130
+Not hard.
+
+111
+00:06:36,420 --> 00:06:42,600
+All you have to do is write a little loop that goes through the numbers 0 through 10 and the expected
+
+112
+00:06:42,600 --> 00:06:47,010
+output should be something like this where every time you go through the loop you're adding in the sum
+
+113
+00:06:47,010 --> 00:06:48,300
+of the two numbers before it.
+
+114
+00:06:48,300 --> 00:06:52,770
+So basically you need to write a loop that keeps track of the previous two values sums them up as you
+
+115
+00:06:52,770 --> 00:06:53,430
+go.
+
+116
+00:06:53,460 --> 00:06:57,870
+So little exercise in some flow control and doing some looping in Scala.
+
+117
+00:06:57,870 --> 00:07:02,550
+Therefore you have at it and have some fun with it so I just wanted to get your hands dirty.
+
+118
+00:07:02,690 --> 00:07:06,150
+And again just get some confidence that you can actually write Scala code that runs. All you've to do
+
+119
+00:07:06,150 --> 00:07:10,620
+is write your code in here and every time you hit control as to save it will get evaluated for you and
+
+120
+00:07:10,620 --> 00:07:13,770
+you'll see the result right alongside your code.
+
+121
+00:07:13,770 --> 00:07:18,210
+So give that a try and see how it goes on to the next lecture.
+

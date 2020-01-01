@@ -1,0 +1,568 @@
+1
+00:00:01,110 --> 00:00:04,320
+Moving on, like I said Scala is a functional programming language.
+
+2
+00:00:04,320 --> 00:00:08,170
+So now it's time to talk about functions which are obviously very important in Scala.
+
+3
+00:00:08,280 --> 00:00:15,240
+So go to the resources for this lecture and download the LearningScala3.sc file.
+
+4
+00:00:15,240 --> 00:00:17,190
+Hit pause while you take care of that.
+
+5
+00:00:18,090 --> 00:00:21,050
+And just like before we're going to import that into our project as well.
+
+6
+00:00:21,050 --> 00:00:28,770
+So again right click on LearningScala project or the import a file system and select the folder where
+
+7
+00:00:28,770 --> 00:00:33,120
+you download your stuff to whatever that might be
+
+8
+00:00:33,720 --> 00:00:35,010
+and select LearningScala3.sc
+
+9
+00:00:35,020 --> 00:00:41,470
+finish, and you should see it here and your project. Lets double click that and take a look.
+
+10
+00:00:41,490 --> 00:00:43,840
+Should it look like this.
+
+11
+00:00:44,070 --> 00:00:44,340
+All right.
+
+12
+00:00:44,340 --> 00:00:46,600
+So let's talk about functions in Scala.
+
+13
+00:00:46,650 --> 00:00:47,880
+Very important lesson here.
+
+14
+00:00:47,880 --> 00:00:51,290
+Like I said functional programming is kind of building blocks of it.
+
+15
+00:00:51,420 --> 00:00:54,920
+So syntax for a function in Scala looks like this.
+
+16
+00:00:54,990 --> 00:00:59,760
+Start with def which basically means I'm declaring a function of some sort followed by the function
+
+17
+00:00:59,760 --> 00:01:03,580
+name. In this case squareIt, I making a function that just squares some value.
+
+18
+00:01:04,080 --> 00:01:08,160
+And the syntax again is backwards from what you might expect from other languages. So we start with a
+
+19
+00:01:08,160 --> 00:01:15,600
+parameter x that is an integer type and we would say that is x colon int and then the return value of
+
+20
+00:01:15,600 --> 00:01:17,790
+this function is an integer as well.
+
+21
+00:01:17,790 --> 00:01:23,310
+So we have another colon after that function named declaration in the parameters that is followed by
+
+22
+00:01:23,310 --> 00:01:25,380
+the type that is returned by the function.
+
+23
+00:01:25,410 --> 00:01:29,460
+So again this is totally different from what other languages might do.
+
+24
+00:01:29,460 --> 00:01:35,180
+Usually you would see int squareIt int x, instead in Scala squareIt x int and int.
+
+25
+00:01:35,280 --> 00:01:39,540
+So just take some getting used to but make sure you understand what's happening there.
+
+26
+00:01:39,540 --> 00:01:44,940
+So again def means we have a function followed by the function name or parameters which have a colon
+
+27
+00:01:44,970 --> 00:01:47,430
+that specifies the type of each parameter.
+
+28
+00:01:47,730 --> 00:01:52,100
+And then finally another colon followed by the type that is returned by the function.
+
+29
+00:01:52,500 --> 00:01:55,980
+And then another thing it's a little bit different is that we have an equal sign between that and the
+
+30
+00:01:55,980 --> 00:02:01,320
+actual brackets for the function because we're basically taking this expression and assigning it to
+
+31
+00:02:01,320 --> 00:02:02,370
+the squareIt  name.
+
+32
+00:02:02,400 --> 00:02:05,280
+OK so we'll be different there too.
+
+33
+00:02:05,700 --> 00:02:08,590
+But inside all we're trying to do is say X times x.
+
+34
+00:02:08,730 --> 00:02:13,560
+And again this is expression's remember from the previous lecture that we don't have to actually explicitly
+
+35
+00:02:13,560 --> 00:02:18,340
+return anything whatever the last value computed in that expression is what gets returned.
+
+36
+00:02:18,660 --> 00:02:22,680
+So this is all we need for a function that actually squares a value.
+
+37
+00:02:22,680 --> 00:02:24,300
+So let's take a look again.
+
+38
+00:02:24,360 --> 00:02:30,930
+squareIt takes in an integer returns an integer and it applies this expression to it x times X to actually
+
+39
+00:02:30,930 --> 00:02:32,430
+get the square.
+
+40
+00:02:32,430 --> 00:02:34,710
+Now we can do something similar here for cubing.
+
+41
+00:02:34,710 --> 00:02:41,580
+Again def cubeIt takes in an integer x returns an integer and uses the expression X times X times X
+
+42
+00:02:41,580 --> 00:02:43,480
+to compute what gets returned.
+
+43
+00:02:43,480 --> 00:02:46,470
+So let's see it in action with the print line.
+
+44
+00:02:46,470 --> 00:02:51,780
+squareIt(2), you just call the function like you would in any other language that we'll return four.
+
+45
+00:02:51,780 --> 00:02:53,010
+Similarly cubeIt(2)
+
+46
+00:02:53,030 --> 00:02:57,540
+will give 8 because you cube does 8 and 2 square is four.
+
+47
+00:02:57,720 --> 00:02:58,620
+All right.
+
+48
+00:02:58,650 --> 00:02:59,870
+Nothing too crazy.
+
+49
+00:02:59,940 --> 00:03:02,550
+So kind of makes sense right.
+
+50
+00:03:02,550 --> 00:03:04,000
+Things get a bit weird now.
+
+51
+00:03:04,350 --> 00:03:09,360
+So I remember I said before up here we're basically assigning this expression to that function named
+
+52
+00:03:09,360 --> 00:03:09,920
+squareIt.
+
+53
+00:03:09,990 --> 00:03:14,340
+So basically every function in scala is kind of it's own little object and you can pass these functions
+
+54
+00:03:14,340 --> 00:03:17,830
+around to other functions like they are objects themselves.
+
+55
+00:03:18,180 --> 00:03:20,000
+So that makes a lot more sense with an example here.
+
+56
+00:03:20,010 --> 00:03:23,090
+Let's make a new function called transformInt.
+
+57
+00:03:23,340 --> 00:03:29,190
+And what this function does is it will take a function to transform an integer. Could be any function
+
+58
+00:03:29,880 --> 00:03:34,620
+and apply that to some integers so our parameters here in this example are going to be an X which is
+
+59
+00:03:34,620 --> 00:03:40,890
+an integer that we want to transform followed by a function that transforms an integer to another integer
+
+60
+00:03:40,890 --> 00:03:41,030
+.
+
+61
+00:03:41,040 --> 00:03:48,210
+So we're taking it here as a parameter a function that expects as input one parameter that is an integer
+
+62
+00:03:48,360 --> 00:03:49,750
+and returns an integer.
+
+63
+00:03:49,800 --> 00:03:56,310
+And that's what the syntax here means takes in an integer and it outputs an integer as its result and
+
+64
+00:03:56,310 --> 00:04:02,230
+the return value of this function itself is an integer set equal to f(x).
+
+65
+00:04:02,280 --> 00:04:08,100
+So we're going to take the function f passed in and pass in the parameter x that was passed in and what
+
+66
+00:04:08,100 --> 00:04:15,280
+gets evaluated is that function f apply to that value X. So let's let's see how that works.
+
+67
+00:04:16,290 --> 00:04:21,300
+So for example we can call it transformInt the value 2 and the function cubeIt.
+
+68
+00:04:21,510 --> 00:04:26,460
+So this will pass in value to the X and the function Cuba to F..
+
+69
+00:04:26,610 --> 00:04:31,190
+The function will then take the function Kubit and pass in X to that and return the results.
+
+70
+00:04:31,200 --> 00:04:37,560
+That gives us back 8 because that will pass in 2 to the cubeIt function and return 8 with the results
+
+71
+00:04:37,560 --> 00:04:38,700
+and there it is.
+
+72
+00:04:38,820 --> 00:04:46,680
+Now for example we could change that to be squareIt and let's just make sure it works save.
+
+73
+00:04:46,860 --> 00:04:51,810
+Sure enough we get for now because now I'm passing two to the squareIt functions so you know you to
+
+74
+00:04:51,860 --> 00:04:54,000
+take a little break here and make sure that sinks in.
+
+75
+00:04:54,000 --> 00:04:57,930
+This is kind of the very fundamental and very important concept of functional programming that you can
+
+76
+00:04:57,930 --> 00:05:00,870
+pass functions around as parameters themselves.
+
+77
+00:05:00,870 --> 00:05:01,820
+OK.
+
+78
+00:05:01,980 --> 00:05:05,010
+I mean other languages this is still possible to do but you don't see it as often.
+
+79
+00:05:05,010 --> 00:05:07,350
+Ok so very important that you understand how that's working.
+
+80
+00:05:07,560 --> 00:05:09,980
+So stare at these little lines of code here.
+
+81
+00:05:09,980 --> 00:05:12,430
+Make sure you understand what's happening there before you move on.
+
+82
+00:05:12,680 --> 00:05:14,380
+OK.
+
+83
+00:05:14,400 --> 00:05:20,100
+Now you don't even need to have a separate function declared for this trick to work.
+
+84
+00:05:20,100 --> 00:05:22,450
+You can actually declare these functions in line as well.
+
+85
+00:05:22,530 --> 00:05:27,360
+And if you've worked with me on my other Spark class in Python This is very similar to how a lambda
+
+86
+00:05:27,360 --> 00:05:29,330
+function in Python works.
+
+87
+00:05:29,340 --> 00:05:34,620
+It also goes by the name of anonymous functions or function literals is a popular term in.
+
+88
+00:05:34,960 --> 00:05:39,320
+But you're gonna see a lot of this so make sure you understand the syntax of what's going on here.
+
+89
+00:05:39,390 --> 00:05:45,030
+So here I'm calling transformInt and instead of passing in a named function, that right here declared I'm just
+
+90
+00:05:45,030 --> 00:05:47,370
+passing in the expression itself.
+
+91
+00:05:47,400 --> 00:05:50,770
+So I don't even need to have a separate function at all.
+
+92
+00:05:50,940 --> 00:05:56,280
+I can say I'm going to pass in the parameter 3 and I'm gonna pass in this expression that takes in a
+
+93
+00:05:56,280 --> 00:06:02,220
+value X and transforms it using the expression X times x times X and this becomes my entire function
+
+94
+00:06:02,220 --> 00:06:05,070
+definition that I pass in to that function.
+
+95
+00:06:05,070 --> 00:06:11,190
+So instead of having a separate cubeIt function, I can embed what cuebeIt does just right here within this
+
+96
+00:06:11,190 --> 00:06:12,060
+call.
+
+97
+00:06:12,510 --> 00:06:14,730
+So this is perfectly valid syntax in Scala.
+
+98
+00:06:15,030 --> 00:06:22,350
+I can say I have some value X that gets transformed using eq. greater than 2 x times x times X and that
+
+99
+00:06:22,350 --> 00:06:23,130
+actually works.
+
+100
+00:06:23,130 --> 00:06:28,620
+You can see here that if I take it pass the value three to transformInt and I pass in this function
+
+101
+00:06:29,310 --> 00:06:31,830
+X gets transformed to x times x times x.
+
+102
+00:06:31,890 --> 00:06:32,610
+It actually works.
+
+103
+00:06:32,610 --> 00:06:39,030
+It will pass in 3 into X and execute that function on it to get the number 27 as a result.
+
+104
+00:06:39,030 --> 00:06:41,150
+OK let's look at it again.
+
+105
+00:06:41,310 --> 00:06:42,480
+So here's another example.
+
+106
+00:06:42,480 --> 00:06:47,880
+I'm using the same transform that just takes as parameters some integer and some function.
+
+107
+00:06:47,880 --> 00:06:49,310
+And in this case the function.
+
+108
+00:06:49,320 --> 00:06:53,460
+The only requirement is that transforms an integer to another integer.
+
+109
+00:06:53,550 --> 00:06:56,660
+I'm taking X and transforms it to X divided by two.
+
+110
+00:06:56,670 --> 00:06:59,730
+So in this example ten gets transformed into 5 that way.
+
+111
+00:06:59,850 --> 00:07:01,790
+OK one more time.
+
+112
+00:07:01,800 --> 00:07:03,630
+We can do a more complicated expression here.
+
+113
+00:07:03,630 --> 00:07:07,870
+So instead of just a simple one liner we can actually do a multi-line expression as well.
+
+114
+00:07:08,230 --> 00:07:13,920
+And in this example we're about to take the value 2 and pass into this function that transforms X into
+
+115
+00:07:13,920 --> 00:07:15,220
+this expression.
+
+116
+00:07:15,350 --> 00:07:16,920
+It actually does a couple of different steps.
+
+117
+00:07:16,920 --> 00:07:23,670
+It takes the value of y that's equal to x times 2 and then squares that resulting value from that
+
+118
+00:07:23,670 --> 00:07:25,560
+becomes the end result of that expression.
+
+119
+00:07:25,560 --> 00:07:34,770
+So we take to assign y to 2 times 2 which is 4 and then we multiply by times like 4 times 4 to get 16
+
+120
+00:07:34,780 --> 00:07:35,030
+.
+
+121
+00:07:35,430 --> 00:07:36,720
+And that is indeed what we get back.
+
+122
+00:07:36,720 --> 00:07:39,640
+So make sure you understand what's going on there.
+
+123
+00:07:39,660 --> 00:07:43,820
+You are going to see this syntax a lot in the world of Scala and in the world of spark in general.
+
+124
+00:07:43,890 --> 00:07:46,710
+So very important I understand that syntax.
+
+125
+00:07:46,800 --> 00:07:51,330
+It's pretty easy to eyeball it but you need to get a really intuitive understanding of what's going
+
+126
+00:07:51,330 --> 00:07:52,680
+on that's that's important.
+
+127
+00:07:52,680 --> 00:07:59,880
+OK so let that sink in and once it has sunk in I'll give you a little bit of a challenge here.
+
+128
+00:07:59,970 --> 00:08:01,450
+So a very simple exercise here.
+
+129
+00:08:01,470 --> 00:08:03,870
+Every string has a  .toUppercase method.
+
+130
+00:08:03,870 --> 00:08:08,730
+You can call it just transform the contents of that string to uppercase characters so play around some
+
+131
+00:08:08,730 --> 00:08:14,460
+functions write a function that actually converts the string to uppercase and try it out and actually
+
+132
+00:08:14,460 --> 00:08:16,350
+execute that function on some strings of your own.
+
+133
+00:08:16,350 --> 00:08:22,290
+Make sure it works and then actually get rid of this separates, the separate function entirely and do
+
+134
+00:08:22,290 --> 00:08:25,320
+it in line just like we did here with anonymous with function literals.
+
+135
+00:08:25,320 --> 00:08:30,660
+OK so I want you to try both doing this with a named separate function that's defined and also with
+
+136
+00:08:30,660 --> 00:08:31,460
+the function literal.
+
+137
+00:08:31,500 --> 00:08:32,370
+You just do in line.
+
+138
+00:08:32,370 --> 00:08:38,910
+So go do that to get some practice with functions and hey when you're done you can say you know functional
+
+139
+00:08:38,910 --> 00:08:39,670
+programming.
+
+140
+00:08:39,690 --> 00:08:40,740
+Congratulations.
+
+141
+00:08:40,770 --> 00:08:42,100
+That's something for the resume.
+
+142
+00:08:42,510 --> 00:08:46,980
+All right let's move on to our final lecture on our Scala bootcamp series
+

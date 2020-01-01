@@ -1,0 +1,1036 @@
+1
+00:00:00,830 --> 00:00:03,930
+All right we're down to our last lecture in our scala a crash course here.
+
+2
+00:00:03,930 --> 00:00:06,900
+This one's going to be about data structures and it's a very important lecture.
+
+3
+00:00:06,900 --> 00:00:07,910
+We use these a lot.
+
+4
+00:00:07,950 --> 00:00:13,380
+So don't skip this one if you don't know them already as before go to the resources for this lecture
+
+5
+00:00:13,380 --> 00:00:17,130
+and please download the LearningScala4.sc file.
+
+6
+00:00:17,280 --> 00:00:18,030
+I'll wait for you.
+
+7
+00:00:18,030 --> 00:00:20,000
+Hit pause while you go take care of that.
+
+8
+00:00:20,670 --> 00:00:28,500
+And when you have that go on as before to to the to right click on the LearningScala project and say
+
+9
+00:00:28,530 --> 00:00:34,470
+import file system browse to wherever you download your stuff
+
+10
+00:00:38,430 --> 00:00:40,370
+and select the LearningScala4.sc for it.
+
+11
+00:00:40,460 --> 00:00:46,890
+The file open it up and you should see a little something like this so let's talk about what's going
+
+12
+00:00:46,890 --> 00:00:48,110
+on in here.
+
+13
+00:00:48,780 --> 00:00:54,120
+OK so a really common data structure you've seen in scala is called a tuple and you know you see this in
+
+14
+00:00:54,120 --> 00:00:55,920
+Python and some other languages as well.
+
+15
+00:00:55,920 --> 00:01:01,680
+Basically it's a collection of stuff that is treated as its own objects so we can make basically this
+
+16
+00:01:02,010 --> 00:01:07,260
+immutable list is how you can think about a tuple with a list of objects that you cannot change once
+
+17
+00:01:07,260 --> 00:01:08,740
+they've been created.
+
+18
+00:01:08,820 --> 00:01:09,780
+Very common in Scala.
+
+19
+00:01:09,780 --> 00:01:11,740
+So how do we declare one.
+
+20
+00:01:11,790 --> 00:01:15,590
+You're putting in parentheses and separate the contents of the list by commas.
+
+21
+00:01:15,590 --> 00:01:21,840
+So for example we can create a tuple called captainStuff that contains the strings Picard Enterprise
+
+22
+00:01:21,840 --> 00:01:28,680
+D and NCC 1701 So maybe this is a tuple that represents information about a Star Trek captain and
+
+23
+00:01:28,680 --> 00:01:32,310
+contains individual fields that have different information about that Captain.
+
+24
+00:01:32,310 --> 00:01:39,360
+So sort of an easy way to pass around you know semi structured data as its own entity and if you print
+
+25
+00:01:39,360 --> 00:01:44,250
+that out you can see that gets converted to the string that is you know the same syntax with in parentheses
+
+26
+00:01:44,280 --> 00:01:47,610
+the different contents of that tuples separated by commas.
+
+27
+00:01:47,970 --> 00:01:52,260
+captainStuff itself is a single object but it contains three different values.
+
+28
+00:01:52,260 --> 00:01:57,750
+These three different strings here so that is a good way to sort of stuff different bits of information
+
+29
+00:01:57,750 --> 00:02:02,470
+into one thing which comes in handy a lot with Spark as you'll see later on.
+
+30
+00:02:02,490 --> 00:02:03,780
+Now how do I get stuff out of it.
+
+31
+00:02:03,800 --> 00:02:06,120
+So let's say I want to extract values out of that tuple.
+
+32
+00:02:06,360 --> 00:02:08,800
+Well the syntax here again with scala is a little bit weird.
+
+33
+00:02:08,820 --> 00:02:13,530
+What you do is you put a dot after the tuple name and then underscore and the number of the field you
+
+34
+00:02:13,530 --> 00:02:21,380
+want to extract, and the thing to remember is that it is a one based index so the first value is number
+
+35
+00:02:21,390 --> 00:02:21,740
+one.
+
+36
+00:02:21,740 --> 00:02:23,670
+The second values number two,the third value
+
+37
+00:02:23,670 --> 00:02:27,350
+number three ,a lot of other things in computer science you start counting at zero.
+
+38
+00:02:27,360 --> 00:02:30,330
+This is not one of those times returning with one here.
+
+39
+00:02:30,330 --> 00:02:35,670
+So for example if I print captainStuff dot underscore one that extracts the first field of my table
+
+40
+00:02:35,730 --> 00:02:39,700
+which contains the string Picard, dot on each score
+
+41
+00:02:39,730 --> 00:02:44,870
+gets the second one which is that apprized daughter and score 3 gets the third element of that tuple
+
+42
+00:02:44,880 --> 00:02:50,530
+which is NCC 171 D  with me so far.
+
+43
+00:02:50,580 --> 00:02:54,880
+Nothing too challenging here but again you just have to get used to the syntax.
+
+44
+00:02:55,620 --> 00:02:58,020
+Now a special case is a key value pair.
+
+45
+00:02:58,020 --> 00:03:00,330
+Basically a tuple that contains two things.
+
+46
+00:03:00,870 --> 00:03:04,280
+And often you'll use this as sort of a key value mapping.
+
+47
+00:03:04,320 --> 00:03:08,890
+So let's say I want to create a tuple that represents a captain and the ship they command.
+
+48
+00:03:09,120 --> 00:03:11,480
+I could use this syntax to do that.
+
+49
+00:03:11,520 --> 00:03:15,060
+That will just create a tuple that maps Picard is the key to the value.
+
+50
+00:03:15,060 --> 00:03:19,490
+Enterprise D and all that does is give me back a tuple that contains a Picard and Enterprise D.
+
+51
+00:03:19,590 --> 00:03:23,850
+I could have declared it the same way as I did up here just by having it within parentheses separated
+
+52
+00:03:23,850 --> 00:03:24,450
+by a comma.
+
+53
+00:03:24,470 --> 00:03:28,980
+But this is sometimes a more readable format that sort of implies to the reader of your code that you
+
+54
+00:03:28,980 --> 00:03:34,700
+are in fact associating a value with a key here and that's your intent of creating that tuple.
+
+55
+00:03:34,700 --> 00:03:39,630
+You would dereference it the same way you would any other tuple picardShip  underscore 2 to
+
+56
+00:03:40,260 --> 00:03:45,090
+extract the value from that key value pair, because it's a second element and give you back Enterprise D,
+
+57
+00:03:45,110 --> 00:03:47,730
+whereas on a score one.
+
+58
+00:03:47,760 --> 00:03:53,940
+Let's try it would give me back the key which is the Picard.
+
+59
+00:03:54,510 --> 00:03:58,740
+Scroll back up to where we were where we are now.
+
+60
+00:03:58,740 --> 00:04:01,230
+Think about tuples they don't have to all be the same type.
+
+61
+00:04:01,230 --> 00:04:04,320
+You can actually mix and match different types of data within a tuple.
+
+62
+00:04:04,320 --> 00:04:10,230
+So here's an example where you have a string, an integer and a boolean all jammed into one tuple and
+
+63
+00:04:10,230 --> 00:04:13,100
+that's a perfectly ok thing to do.
+
+64
+00:04:13,230 --> 00:04:14,940
+Comes in handy sometimes.
+
+65
+00:04:15,780 --> 00:04:17,350
+So that's tuples.
+
+66
+00:04:17,620 --> 00:04:20,060
+Moving on take a little break you need to let that sink in.
+
+67
+00:04:20,070 --> 00:04:21,350
+Review it.
+
+68
+00:04:21,670 --> 00:04:22,230
+Or good.
+
+69
+00:04:22,230 --> 00:04:28,920
+All right lists are a lot like tuples but it's an actual collection object so it has more stuff you
+
+70
+00:04:28,920 --> 00:04:33,870
+can do to it, a bit more. Will get more heavyweight but a little bit more flexible.
+
+71
+00:04:34,110 --> 00:04:37,050
+So kind of like a tuple you can declare a list.
+
+72
+00:04:37,170 --> 00:04:42,810
+That's just a list of comma separated values here and under the hood it's got to build a singly linked
+
+73
+00:04:42,810 --> 00:04:44,730
+list to represent that information.
+
+74
+00:04:44,730 --> 00:04:53,550
+So here we have a shipList value that is a list of enterprise defined for deep space nine. So four different
+
+75
+00:04:53,550 --> 00:04:59,320
+ships from four different Star Trek series in this example. And the syntax of dealing with lists is different
+
+76
+00:04:59,310 --> 00:05:00,350
+than a tuple.
+
+77
+00:05:00,630 --> 00:05:06,640
+So for example if I want to extract a value from that list I can just use parentheses and then the field
+
+78
+00:05:06,630 --> 00:05:07,950
+number I want to extract.
+
+79
+00:05:07,960 --> 00:05:12,720
+So now in this case we're not starting with one we're starting with 0.
+
+80
+00:05:12,810 --> 00:05:16,420
+OK so you've got a growing number that very easy to make bugs around this stuff.
+
+81
+00:05:16,420 --> 00:05:24,120
+In this case shipList one will go extract the zero based element of the list at once so we go 0 is
+
+82
+00:05:24,120 --> 00:05:28,140
+enterprise ,1 it's defiant shipList(1) one gets me back defiant.
+
+83
+00:05:28,260 --> 00:05:29,400
+OK.
+
+84
+00:05:29,860 --> 00:05:34,600
+I know it's confusing but it's something you just have to remember with Scala.
+
+85
+00:05:34,620 --> 00:05:37,710
+Now Dot head will give you the first element of the list.
+
+86
+00:05:37,810 --> 00:05:40,940
+Tail will give you all the remaining elements of the list after the head.
+
+87
+00:05:41,000 --> 00:05:44,880
+OK so in other languages tail might return the last element.
+
+88
+00:05:44,880 --> 00:05:49,810
+That's not how it works here. Tail gives you actually list a sub list of the list that just excludes
+
+89
+00:05:49,810 --> 00:05:53,150
+the first element and sometimes that's useful if you're iterating through a list.
+
+90
+00:05:53,190 --> 00:05:57,540
+You need to extract one item and then you know keep working with the remainder of that list in the next
+
+91
+00:05:57,550 --> 00:05:58,450
+iteration.
+
+92
+00:05:58,670 --> 00:05:59,370
+OK.
+
+93
+00:06:00,030 --> 00:06:03,580
+Now let's say I want to iterate through an entire list and do something to every value within it.
+
+94
+00:06:03,580 --> 00:06:05,570
+That's something you need to do pretty often.
+
+95
+00:06:05,620 --> 00:06:10,110
+So remember that that range operator we introduced when we talked about flow control.
+
+96
+00:06:10,180 --> 00:06:17,230
+Well same trick applies to lists so we can say for ship and shipList and that will actually produce
+
+97
+00:06:17,410 --> 00:06:22,450
+a range and iterator that goes through every ship in the shipList assigns it to the ship variable and
+
+98
+00:06:22,440 --> 00:06:24,190
+get printed each ship one at a time that way.
+
+99
+00:06:24,190 --> 00:06:30,630
+So this code here again the key is this little range operator here that will go through the ship list
+
+100
+00:06:30,620 --> 00:06:35,590
+to extract each individual element into a new value called ship that we can then print out within this
+
+101
+00:06:35,590 --> 00:06:41,240
+expression so that will go through and print out each individual ship and our ship list.
+
+102
+00:06:41,860 --> 00:06:43,630
+More fun with lists here.
+
+103
+00:06:43,690 --> 00:06:49,930
+We can also use the map function to actually transform a list using some expression.
+
+104
+00:06:49,960 --> 00:06:51,930
+So Let's take a look what's going on there.
+
+105
+00:06:52,060 --> 00:06:57,140
+Let's say I have my ship list of ship names enterprise, defiant, voyager and deep space nine. I can call
+
+106
+00:06:57,160 --> 00:07:02,430
+dot map to actually apply an expression, some function to every element of that list one at a time
+
+107
+00:07:02,460 --> 00:07:02,940
+.
+
+108
+00:07:03,390 --> 00:07:08,290
+So in this case I'm actually defining a little function in line that takes a string called ship and
+
+109
+00:07:08,290 --> 00:07:15,270
+maps to ship dot reverse which just reverses the the characters in each string.
+
+110
+00:07:15,700 --> 00:07:21,880
+So what that does is say I want to take this function that reverses a string and map that to the ship
+
+111
+00:07:21,880 --> 00:07:26,770
+list and return a new list called backwardShips that contains the backwards names of all the ships
+
+112
+00:07:26,770 --> 00:07:26,810
+.
+
+113
+00:07:26,850 --> 00:07:34,550
+OK so I stare at that line for a little bit until it sinks in and the output is exactly what we want
+
+114
+00:07:34,550 --> 00:07:34,570
+.
+
+115
+00:07:34,570 --> 00:07:38,820
+So we have a list of all the ships with their names backwards.
+
+116
+00:07:39,510 --> 00:07:40,420
+OK.
+
+117
+00:07:40,420 --> 00:07:41,770
+So that's what the map function does.
+
+118
+00:07:41,760 --> 00:07:46,450
+It just supplies some function that transforms each element of the list into a new list.
+
+119
+00:07:46,770 --> 00:07:48,360
+OK.
+
+120
+00:07:49,500 --> 00:07:54,160
+And we can go through and print out those results to just using that same trick with the range operator
+
+121
+00:07:54,150 --> 00:07:55,280
+there to print out the results.
+
+122
+00:07:55,270 --> 00:07:59,540
+And sure enough we get the backwards versions of each ship name printed out one at a time.
+
+123
+00:07:59,590 --> 00:08:01,950
+OK with me so far.
+
+124
+00:08:02,250 --> 00:08:03,720
+OK so that's that's mapping.
+
+125
+00:08:03,790 --> 00:08:07,270
+That's the map function mapping sound familiar map reduce.
+
+126
+00:08:07,260 --> 00:08:09,180
+Same concept same exact concept.
+
+127
+00:08:09,190 --> 00:08:11,930
+The only difference is that we're not actually doing this in a distributed manner.
+
+128
+00:08:12,070 --> 00:08:17,910
+We're just using Scala's built in operators on the list to actually map one list to another.
+
+129
+00:08:17,930 --> 00:08:23,560
+Now I said map reduce, can talk about map without reduce then sure enough there's a reduce method on
+
+130
+00:08:23,570 --> 00:08:24,490
+list as well.
+
+131
+00:08:24,700 --> 00:08:31,140
+So just like we can use map to apply a transformation to every individual element of a list we can
+
+132
+00:08:31,140 --> 00:08:36,810
+use the reduced function to actually combine the contents of a list together.
+
+133
+00:08:36,880 --> 00:08:41,950
+So here we can start with a numberList just a list of the numbers 1 2 3 4 and 5. If I can call reduce
+
+134
+00:08:41,950 --> 00:08:45,650
+on that list with a function that tells how to combine these things together.
+
+135
+00:08:46,000 --> 00:08:49,640
+So basically what reduce does is it goes through each list and as it gets
+
+136
+00:08:49,640 --> 00:08:54,040
+each pair of items, will use the function we provide to combine them together.
+
+137
+00:08:54,100 --> 00:08:59,310
+So basically we're saying as new values come in from the list add them up.
+
+138
+00:08:59,320 --> 00:09:04,810
+So as I get to values that are processed together I've got to add them up take that result add and then
+
+139
+00:09:04,810 --> 00:09:08,450
+add value take that resulted in the next value and so on and so forth until we're done.
+
+140
+00:09:08,470 --> 00:09:15,030
+So basically this is a way of saying I want to take the entire list sum up all the values and give me
+
+141
+00:09:15,040 --> 00:09:15,950
+back the result.
+
+142
+00:09:16,300 --> 00:09:21,450
+And what that does is iterate through the entire list, one pair of  values at a time.
+
+143
+00:09:21,550 --> 00:09:30,570
+So it takes one plus two says that's three three plus three is six, six plus four is 10 and ten plus four is 15,
+
+144
+00:09:31,360 --> 00:09:34,260
+using that reduce operator that reduce function we provided.
+
+145
+00:09:34,360 --> 00:09:38,730
+And sure enough the answer we get back is 15 and we can print out that result.
+
+146
+00:09:38,910 --> 00:09:45,470
+Sure enough 15 and hey that's map reduce you know the only difference is that in a real mapreduce
+
+147
+00:09:45,580 --> 00:09:49,330
+application you would be using functions that actually work on a cluster.
+
+148
+00:09:49,330 --> 00:09:51,900
+Same concept though filter.
+
+149
+00:09:51,900 --> 00:09:56,520
+Also it can be used and you know if you've looked at Spark or mapreduce before that might also look familiar
+
+150
+00:09:57,070 --> 00:10:01,990
+you can actually use that to create a sublist based on some filter function you define.
+
+151
+00:10:01,990 --> 00:10:08,980
+So in this example we're gonna say I have a new class called iHateFives and I'm going to take my numberList
+
+152
+00:10:08,990 --> 00:10:14,830
+that contains numbers 1 2 3 4 5 and apply a filter that tests to make sure that X does not equal
+
+153
+00:10:14,830 --> 00:10:15,890
+5.
+
+154
+00:10:15,930 --> 00:10:23,040
+So I have in here a little inline function function literal if you will that takes an integer x and
+
+155
+00:10:23,050 --> 00:10:29,410
+tests if x is not equal to 5 and that boolean results of that function will determine whether or not
+
+156
+00:10:30,160 --> 00:10:35,360
+that individual list element survives and gets passed into the resulting lists what goes on here.
+
+157
+00:10:35,470 --> 00:10:36,970
+We start with 1 2 3 4 5.
+
+158
+00:10:36,970 --> 00:10:42,450
+We apply this filter function to it which will allow everything but the 5 to pass through.
+
+159
+00:10:42,550 --> 00:10:46,450
+And you can see that we end up with the list 1 2 3 4 and  5 has been excluded.
+
+160
+00:10:46,870 --> 00:10:52,770
+Do the same thing again here a little bit of a more compact syntax here that you often see.
+
+161
+00:10:52,930 --> 00:10:56,030
+Same idea but here we're using a little bit of a syntactical shortcut.
+
+162
+00:10:56,050 --> 00:11:02,730
+You can actually say in a function literal underscore to just say whatever it is is not equal to 3.
+
+163
+00:11:02,730 --> 00:11:09,100
+So that is sort of implicitly removing this X transformed to X and just simplifying it down to hey I
+
+164
+00:11:09,100 --> 00:11:11,460
+know I only have one parameter coming in.
+
+165
+00:11:11,470 --> 00:11:14,690
+I want to take that parameter whatever it is and just compare it to three.
+
+166
+00:11:14,800 --> 00:11:19,420
+OK and you can see that works just as well if I apply this filter function that makes sure that each
+
+167
+00:11:19,420 --> 00:11:24,370
+element represented by that underscore is not equal to three is all that passes through that I end up
+
+168
+00:11:24,370 --> 00:11:28,900
+with 1 to 4 or 5 where the 3 has been omitted.
+
+169
+00:11:29,010 --> 00:11:33,790
+So you know you do see this a lot in Scala where we have these you know people that want to save keystrokes
+
+170
+00:11:33,790 --> 00:11:37,670
+at the expense of readability but you need to understand that when you see it.
+
+171
+00:11:38,860 --> 00:11:43,810
+Now SPARK has its own map reduce and filter operations that can actually happen in a distributed manner
+
+172
+00:11:43,810 --> 00:11:43,980
+.
+
+173
+00:11:43,990 --> 00:11:49,520
+The only difference is that we'll be not operating on list structures but something we call RDD's
+
+174
+00:11:49,540 --> 00:11:50,350
+but we'll get to that later.
+
+175
+00:11:50,350 --> 00:11:51,990
+But same exact concept.
+
+176
+00:11:52,090 --> 00:11:57,670
+So if you understand how this map and reduce function , this filter function worked hey you understand
+
+177
+00:11:57,670 --> 00:12:00,560
+map reduce now and you also understand a good part about how SPARK works.
+
+178
+00:12:00,560 --> 00:12:01,850
+It's all the same idea.
+
+179
+00:12:02,110 --> 00:12:04,500
+It's actually not that complicated.
+
+180
+00:12:04,550 --> 00:12:06,250
+A few more or less tricks here.
+
+181
+00:12:06,340 --> 00:12:10,690
+Let's say I want to concatenate two lists together we have are one two three four five list numberList
+
+182
+00:12:10,720 --> 00:12:16,060
+and I want to concatenate a new list called moreNumbers that contain 6 7 8, the plus plus operator will
+
+183
+00:12:16,060 --> 00:12:21,060
+combine two lists together and that gives us back the combined listWwonder if you put 5 6 7 8.
+
+184
+00:12:21,120 --> 00:12:23,540
+Ok a few more tricks.
+
+185
+00:12:23,570 --> 00:12:24,080
+It has a.
+
+186
+00:12:24,100 --> 00:12:27,780
+Every list has a dot reverse method that will give you the reversed list.
+
+187
+00:12:27,790 --> 00:12:29,420
+So five four three two one.
+
+188
+00:12:29,730 --> 00:12:34,610
+It has a dot sorted method that will return a sorted version of that list.
+
+189
+00:12:34,620 --> 00:12:39,580
+So here I took my reverseList those five four three two one called Dot sorted on it and then returns
+
+190
+00:12:39,580 --> 00:12:42,720
+and you sortedList that's back to 1 2 3 4 or 5.
+
+191
+00:12:43,330 --> 00:12:44,850
+Let's look at distinct.
+
+192
+00:12:44,880 --> 00:12:49,740
+So let's say I take my number listin append itself number list plus plus number lists and I get one
+
+193
+00:12:49,750 --> 00:12:51,690
+two three four five one two three four five.
+
+194
+00:12:51,970 --> 00:12:56,080
+If I just want the distinct values in that list I can call that distinct and just get back to you three
+
+195
+00:12:56,080 --> 00:13:00,820
+or four or five because those are the numbers that only appear once.
+
+196
+00:13:01,530 --> 00:13:02,360
+OK.
+
+197
+00:13:03,120 --> 00:13:07,300
+So we also have a max function that will find the maximum value in the lists.
+
+198
+00:13:07,300 --> 00:13:11,110
+Sum will sum them all up if they are numbers that can be summed.
+
+199
+00:13:11,110 --> 00:13:15,580
+And I also have a dot contains function that can be used as a quick test to see if a list contains a
+
+200
+00:13:15,580 --> 00:13:16,360
+given value.
+
+201
+00:13:16,360 --> 00:13:21,400
+So I hate threes where we filtered out the number three contains three will return false because it
+
+202
+00:13:21,390 --> 00:13:23,180
+has everything but three.
+
+203
+00:13:23,200 --> 00:13:28,420
+All right that's less I want to take a break here let it sink in because we want to move on to maps
+
+204
+00:13:28,410 --> 00:13:30,560
+now.
+
+205
+00:13:30,580 --> 00:13:35,260
+All right maps maps just like maps in other languages sometimes are called dictionaries.
+
+206
+00:13:35,250 --> 00:13:41,350
+Basically there are a lookup table of given keys to values so the way to declare a map in Scala something
+
+207
+00:13:41,350 --> 00:13:41,990
+like this.
+
+208
+00:13:42,020 --> 00:13:47,200
+So let's say I want to create a map that maps starship captains to the ship they commanded.
+
+209
+00:13:47,200 --> 00:13:53,020
+So here we have a map of Kirk maps to enterprise where this Dasch greater than signs syntax mapping
+
+210
+00:13:53,020 --> 00:13:54,110
+keys to values here.
+
+211
+00:13:54,220 --> 00:13:58,020
+Picard associate with Enterprise D ,Cisco the Deep Space Nine and Janeway to Voyager.
+
+212
+00:13:58,410 --> 00:14:04,800
+And we can actually do a look up very simply here by using this print to see parentheses key name  here to extract
+
+213
+00:14:04,810 --> 00:14:08,980
+the value associated with that key so ship map Janeway returns Voyager.
+
+214
+00:14:09,050 --> 00:14:09,420
+OK.
+
+215
+00:14:09,430 --> 00:14:11,160
+Very easy to use.
+
+216
+00:14:11,540 --> 00:14:18,240
+Now one complexity is that when you're dealing with maps you need to deal with missing the missing keys
+
+217
+00:14:18,250 --> 00:14:20,690
+right so what if I did like Archer.
+
+218
+00:14:20,840 --> 00:14:21,500
+OK.
+
+219
+00:14:21,700 --> 00:14:26,280
+That wasn't in my list of original captains in my list of keys for this map.
+
+220
+00:14:26,290 --> 00:14:30,370
+So what happens if I try to extract Archer Well that shouldn't generate an exception.
+
+221
+00:14:30,370 --> 00:14:36,070
+So one way to protect against that is to make sure that the map actually contains that we're looking
+
+222
+00:14:36,070 --> 00:14:37,400
+for first.
+
+223
+00:14:37,410 --> 00:14:42,640
+So if I do that test I can say shipMap contains Archer that will return false because that map does
+
+224
+00:14:42,630 --> 00:14:43,930
+not have a key for Archer.
+
+225
+00:14:44,080 --> 00:14:48,310
+And at that point I could say well I know that he doesn't exist so I'm not going to try to extract the
+
+226
+00:14:48,310 --> 00:14:51,530
+value for that key because I knew that would lead to an error.
+
+227
+00:14:51,530 --> 00:14:55,250
+Another way you can deal with it is by using this Try syntax.
+
+228
+00:14:55,510 --> 00:15:01,100
+So you know just like try exception block or or try catch blocks in Java.
+
+229
+00:15:01,300 --> 00:15:02,740
+Similar concept there.
+
+230
+00:15:02,870 --> 00:15:08,620
+Well we're gonna do is use this utility try function that's built into Scala to actually extract the
+
+231
+00:15:08,620 --> 00:15:10,360
+value for Archer from ship map.
+
+232
+00:15:10,360 --> 00:15:13,660
+And what's going to happen is that's going to generate an exception because there is no key for our
+
+233
+00:15:13,650 --> 00:15:14,610
+tranship map.
+
+234
+00:15:14,860 --> 00:15:20,260
+But instead of erroring out we're going to wrap it in this utility try so it catches an exception get
+
+235
+00:15:20,270 --> 00:15:24,300
+or else says I want to actually get the value of this expression here.
+
+236
+00:15:24,310 --> 00:15:27,950
+But if it generates an exception Here's my fallback value of unknown.
+
+237
+00:15:28,030 --> 00:15:32,770
+And if I go ahead and execute that you can see that when I try to use shipmen Archer that does generate
+
+238
+00:15:32,770 --> 00:15:37,390
+an exception getOrElse handles that exception and returns the key string.
+
+239
+00:15:37,410 --> 00:15:44,320
+Unknown in that case so that's a safe way of accessing a map where you're not sure if the key is actually
+
+240
+00:15:44,320 --> 00:15:46,630
+in it or not.
+
+241
+00:15:46,620 --> 00:15:47,650
+All right.
+
+242
+00:15:48,100 --> 00:15:51,290
+Those are all the main data structures that we need to deal with with Scala.
+
+243
+00:15:51,290 --> 00:15:55,650
+There are others you know and we'll maybe touch on one or two more of them as we go through the course
+
+244
+00:15:55,650 --> 00:15:56,390
+.
+
+245
+00:15:56,470 --> 00:16:00,580
+Obviously there's a lot more to Scala than we've talked about here we haven't even really gotten into
+
+246
+00:16:00,580 --> 00:16:06,760
+object oriented Scala and some of the more mundane details of the language that might come up from time
+
+247
+00:16:06,760 --> 00:16:07,140
+to time.
+
+248
+00:16:07,140 --> 00:16:11,170
+But as new concepts come up through this course that you might need I'll introduce him to you as we
+
+249
+00:16:11,160 --> 00:16:11,770
+go.
+
+250
+00:16:11,770 --> 00:16:12,900
+This is all you need to get started.
+
+251
+00:16:12,900 --> 00:16:14,670
+So these are the basics of Scala.
+
+252
+00:16:14,830 --> 00:16:19,450
+If you do want to learn more there is a good book called  learning scala by  Oreilly that I recommend
+
+253
+00:16:19,510 --> 00:16:23,770
+I don't get any money if you buy it or whatnot but a really good reference and it does go to all those
+
+254
+00:16:23,860 --> 00:16:25,900
+little details I talked about.
+
+255
+00:16:26,020 --> 00:16:28,690
+You want to learn more but that's enough to get you started.
+
+256
+00:16:28,690 --> 00:16:32,980
+I think that's enough for now so let's just start to dive into some actual spark streaming shall we
+
+257
+00:16:33,000 --> 00:16:33,340
+.
+
+258
+00:16:33,660 --> 00:16:34,980
+And congratulations.
+
+259
+00:16:34,990 --> 00:16:37,670
+You now know Scala
+
